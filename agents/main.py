@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-chat_model = ChatOllama(model= "qwen3:8b")
+chat_model = ChatOllama(model= "llama3.1:8b")
 translate_model = ChatOllama(model= "translategemma:4b")
 
 # result = chat_model.invoke("hi")
