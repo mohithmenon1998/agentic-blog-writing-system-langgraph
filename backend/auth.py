@@ -1,3 +1,4 @@
+import os
 from fastapi import Depends, HTTPException, Header
 from jose import jwt
 from passlib.context import CryptContext
@@ -7,8 +8,8 @@ from uuid import UUID
 from database import get_session
 from models import Users
 
-SECRET = "SECRET"
-ALGORITHM = "HS256"
+SECRET = os.getenv("SECRET")
+ALGORITHM = os.getenv("ALGORITHM")
 
 pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
