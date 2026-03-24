@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:8000"  # change when deployed
+API_URL = "https://agentic-blog-writing-system-langgraph.onrender.com"  # change when deployed
 
 st.set_page_config(page_title="Blog Generator", layout="wide")
 
