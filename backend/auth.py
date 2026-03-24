@@ -4,8 +4,8 @@ from passlib.context import CryptContext
 from sqlmodel import Session, select
 from uuid import UUID
 
-from .database import get_session
-from .models import Users
+from backend.database import get_session
+from backend.models import Users
 
 SECRET = "SECRET"
 ALGORITHM = "HS256"
