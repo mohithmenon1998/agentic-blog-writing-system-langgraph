@@ -12,7 +12,6 @@ from .auth import (
     get_current_user,
 )
 
-# 🔥 your LangGraph compiled app
 from agents.graph import app as graph_app
 
 
@@ -43,12 +42,6 @@ class BlogRequest(BaseModel):
 
 @app.post("/signup")
 def signup(user: UserIn, session: Session = Depends(get_session)):
-    
-    print("Password:", user.password)
-    print("Length:", len(user.password))
-    print("RAW PASSWORD:", user.password)
-    print("TYPE:", type(user.password))
-    print("LENGTH:", len(user.password))
 
     existing = session.exec(
         select(Users).where(Users.email == user.email)
@@ -59,7 +52,7 @@ def signup(user: UserIn, session: Session = Depends(get_session)):
 
     new_user = Users(
         email=user.email,
-        password=hash_password(user.password)  # ✅ ONLY this
+        password=hash_password(user.password)
     )
 
     session.add(new_user)
@@ -91,7 +84,7 @@ def generate_blog(
     user=Depends(get_current_user),
     session: Session = Depends(get_session),
 ):
-    # ✅ verify user exists
+    # verify user exists
     db_user = session.exec(
         select(Users).where(Users.id == user.id)
     ).first()
