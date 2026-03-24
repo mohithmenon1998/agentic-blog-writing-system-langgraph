@@ -37,7 +37,7 @@ def fetch_blogs():
 # Auth UI
 # -----------------------------
 if not st.session_state.token:
-    st.title("🔐 Login / Signup")
+    st.title("Login / Signup")
 
     tab1, tab2 = st.tabs(["Login", "Signup"])
 
@@ -82,9 +82,9 @@ if not st.session_state.token:
 # -----------------------------
 # Sidebar (Past blogs)
 # -----------------------------
-st.sidebar.title("📚 Past Blogs")
+st.sidebar.title("Past Blogs")
 
-if st.button("🔄 Refresh"):
+if st.button("Refresh"):
     fetch_blogs()
 
 for blog in st.session_state.blogs:
@@ -95,7 +95,7 @@ for blog in st.session_state.blogs:
 # -----------------------------
 # Main UI
 # -----------------------------
-st.title("🧠 AI Blog Generator")
+st.title("Mohith's AI Blog Generator")
 
 topic = st.text_input("Enter blog topic")
 
@@ -126,7 +126,7 @@ if st.session_state.current_blog:
     st.markdown(st.session_state.current_blog)
 
     st.download_button(
-        "⬇️ Download Markdown",
+        "Download Markdown",
         st.session_state.current_blog,
         file_name="blog.md",
     )
@@ -136,7 +136,7 @@ if st.session_state.current_blog:
 # Logout
 # -----------------------------
 st.sidebar.divider()
-if st.sidebar.button("🚪 Logout"):
+if st.sidebar.button("Logout"):
     st.session_state.token = None
     st.session_state.blogs = []
     st.session_state.current_blog = None
