@@ -6,7 +6,6 @@ from agents.schemas import EvidenceItem, Plan
 class State(TypedDict):
     
     topic: str
-    
     mode: str
     needs_research: bool
     queries: List[str]
