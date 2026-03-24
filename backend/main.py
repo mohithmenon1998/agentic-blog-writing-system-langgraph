@@ -3,9 +3,9 @@ from pydantic import BaseModel
 from sqlmodel import Session, select
 from datetime import date
 
-from backend.database import create_db_and_tables, get_session
-from backend.models import Users, Blog
-from backend.auth import (
+from database import create_db_and_tables, get_session
+from models import Users, Blog
+from auth import (
     hash_password,
     verify_password,
     create_token,
