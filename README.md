@@ -120,16 +120,16 @@ The goal is to demonstrate how to **design, deploy, and manage real-world AI sys
 
 ```id="codestruct01"
 backend/
+└──agents/
+  ├── graph.py       # LangGraph workflow definition
+  ├── llm.py
+  ├── schemas.py
+  ├── state.py
+
 ├── main.py        # API routes + orchestration
 ├── models.py      # DB schema (UUID-based)
 ├── auth.py        # JWT authentication
 ├── database.py    # DB connection handling
-
-agents/
-├── graph.py       # LangGraph workflow definition
-├── llm.py
-├── schemas.py
-├── state.py
 
 frontend/
 └── app.py             # Streamlit client
