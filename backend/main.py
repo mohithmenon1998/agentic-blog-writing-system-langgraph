@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel
 from sqlmodel import Session, select
-from datetime import date
+from datetime import date, datetime
 
 from database import create_db_and_tables, get_session
 from models import Users, Blog
@@ -39,6 +39,17 @@ class BlogRequest(BaseModel):
 # -----------------------
 # Auth Routes
 # -----------------------
+@app.get("/")
+def root():
+    return {"message": "API is running"}
+
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "timestamp": str(datetime.utcnow())
+    }
+
 
 @app.post("/signup")
 def signup(user: UserIn, session: Session = Depends(get_session)):
